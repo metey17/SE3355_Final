@@ -1,7 +1,7 @@
 # IMDB Application
 
 ## Design Explanation
-Our IMDB application allows users to rate movies. Technologies used in the project:
+My IMDB application allows users to rate movies. Technologies used in the project:
 - **Backend**: Node.js and Express
 - **Database**: MySQL
 - **Authentication**: Google OAuth 2.0 and JWT (JSON Web Tokens)
