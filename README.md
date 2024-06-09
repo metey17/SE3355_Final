@@ -42,8 +42,7 @@ The data model is built on MySQL. Our main data models are:
 - **Related Data**: I experienced some difficulties when associating movie and review data.
 
 ## Video Presentation
-[Project Presentation Video]([https://docs.google.com/video-link](https://drive.google.com/file/d/1HvgAMP1KiKQ1PkbhCklFQo1olHiocoBA/view?usp=sharing))
-
+https://drive.google.com/file/d/1HvgAMP1KiKQ1PkbhCklFQo1olHiocoBA/view?usp=sharing
 
 Mete Yağcı
 18070006041
