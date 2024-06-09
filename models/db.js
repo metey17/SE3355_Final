@@ -2,10 +2,10 @@ import mysql from 'mysql';
 
 
 const dbConfig = {
-    host: 'localhost',
-    user: 'root', // MySQL kullanıcı adı
-    password: '', // MySQL şifre
-    database: 'imdb' // Veritabanı adı
+    host     : process.env.MYSQL_ADDON_HOST,
+    database : process.env.MYSQL_ADDON_DB,
+    user     : process.env.MYSQL_ADDON_USER,
+    password : process.env.MYSQL_ADDON_PASSWORD
 };
 
 // MySQL bağlantı havuzunu oluştur
