@@ -14,7 +14,7 @@ Main functionalities of the application:
 - Multilingual support
 
 ## Data Model
-The data model is built on MySQL. Our main data models are:
+The data model is built on MySQL. My main data models are:
 - **User**: User information and authentication.
   - `name`: String
   - `email`: String
