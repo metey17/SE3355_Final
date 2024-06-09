@@ -44,5 +44,6 @@ The data model is built on MySQL. Our main data models are:
 ## Video Presentation
 https://drive.google.com/file/d/1HvgAMP1KiKQ1PkbhCklFQo1olHiocoBA/view?usp=sharing
 
+Note: I also forgot to show that signing in with a Google account is available in the video
 Mete Yağcı
 18070006041
