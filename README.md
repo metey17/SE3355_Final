@@ -31,7 +31,7 @@ The data model is built on MySQL. Our main data models are:
   - `rating`: Number (1-10 scale)
 
 ## Assumptions
-- Users register with a unique username and email.
+- Users register with  username and email.
 - Each user can make multiple comments.
 - Movies and comments are visible to everyone.
 - Each movie can have multiple comments.
