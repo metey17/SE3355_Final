@@ -1,0 +1,164 @@
+<nav class="navbar">
+    <div class="navbar-container d-flex justify-content-between" style="display: flex; flex-direction: row; justify-content: space-between; ">
+        <a href="http://localhost:55000/" class="logo"><i class="fab fa-imdb"></i> IMDb</a>
+        <div class="search-bar" style="display: flex; flex-direction: column; ">
+            <div style="display: flex; flex-direction: row;">
+                <input type="text" id="searchQuery" placeholder="Search IMDb">
+                <button id="searchButton"><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div id="results" class="search-result-container" style="position:absolute; width: 100%;  ">
+                
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Watchlist</a></li>
+        </ul>
+        <div class="language-selector">
+
+            <select id="language-select">
+                <option value="">Select Language</option>
+                <option value="en">EN</option>
+                <option value="tr">TR</option>
+            </select>
+            <script>
+                document.getElementById('language-select').addEventListener('change', function () {
+                    var selectedLang = this.value;
+                    if (selectedLang) {
+                        window.location.href = '/?lang=' + selectedLang;
+                    }
+                });
+            </script>
+        </div>
+        <div class="user-options">
+            <div class="profile">
+                <span class="user-name">John Doe</span>
+                <i class="fas fa-user-circle"></i>
+                <a href="logout" class="login-btn">Log Out</a>
+            </div>
+            <div class="profile2">
+                <a href="login" class="login-btn">Log In</a>
+                <a href="signin" class="signup-btn">Sign In</a>
+            </div>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
+
+<script>
+    document.getElementById('searchQuery').addEventListener('input', function() {
+        const query = this.value.trim();
+        const resultsContainer = document.getElementById('results');
+
+        // Eğer sorgu boşsa sonuçları temizle
+        if (query === '') {
+            resultsContainer.innerHTML = '';
+            return;
+        }
+        resultsContainer.innerHTML = '<p>Loading...</p>';
+        // İlk 3 harfte, arama metnini karşılayan en fazla 3 üst öğeyi göster
+        if (query.length >= 3) {
+            fetchResults(query);
+        }
+    });
+
+    function fetchResults(query) {
+        const resultsContainer = document.getElementById('results');
+        
+        
+        
+        fetch('/search', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ query: query })
+        })
+        .then(response => response.json())
+        .then(data => {
+            resultsContainer.innerHTML = '';
+
+            if (data.length === 0) {
+                resultsContainer.innerHTML = '<p>No results found.</p>';
+            } else {
+                const movieResults = data.filter(item => item.type === 'Movie');
+                const actressResults = data.filter(item => item.type === 'Actress');
+
+                if (movieResults.length > 0) {
+                    const movieHeader = document.createElement('h2');
+                    movieHeader.textContent = 'Movies';
+                    resultsContainer.appendChild(movieHeader);
+                    
+                    movieResults.forEach(item => {
+                        const resultItem = createResultItem(item);
+                        resultsContainer.appendChild(resultItem);
+                    });
+                }
+
+                if (actressResults.length > 0) {
+                    const actressHeader = document.createElement('h2');
+                    actressHeader.textContent = 'Actresses';
+                    resultsContainer.appendChild(actressHeader);
+                    
+                    actressResults.forEach(item => {
+                        const resultItem = createResultItem(item);
+                        resultsContainer.appendChild(resultItem);
+                    });
+                }
+            }
+        });
+    }
+
+    function createResultItem(item) {
+        const resultItem = document.createElement('div');
+        resultItem.className = 'search-result-item';
+        resultItem.style.cursor = 'pointer';
+
+        const resultImage = document.createElement('img');
+        resultImage.src = `assets/img/uploads/${item.img}` || 'https://via.placeholder.com/50x75'; 
+        resultImage.style.borderRadius = '50%';
+        const resultInfo = document.createElement('div');
+        resultInfo.className = 'result-info';
+
+        const resultTitle = document.createElement('div');
+        resultTitle.className = 'result-title';
+        resultTitle.textContent = item.name;
+
+        // Event listener ekleniyor
+    resultItem.addEventListener('click', () => {
+        // Tıklanan film için yönlendirme yapılıyor
+        window.location.href = `/content?id=${item.id}`;
+    });
+
+        resultInfo.appendChild(resultTitle);
+        resultItem.appendChild(resultImage);
+        resultItem.appendChild(resultInfo);
+
+        return resultItem;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const token = localStorage.getItem('token');
+        const name = localStorage.getItem('name');
+        const profile = document.getElementsByClassName('profile')[0];
+        const profile2 = document.getElementsByClassName('profile2')[0];
+        const userName = document.querySelector('.profile .user-name');
+
+        if (token) {
+            if (userName) {
+                userName.textContent = name;
+            }
+            profile.style.display = 'flex';
+            profile2.style.display = 'none';
+        } else {
+            profile.style.display = 'none';
+            profile2.style.display = 'flex';
+        }
+    });
+
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+        document.querySelector('.navbar-container').classList.toggle('mobile-menu');
+    });
+</script>

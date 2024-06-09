@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDB</title>
+    <link rel="stylesheet" href="../public/assets/css/login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+	background-color: rgba(0, 0, 0, 0.7);
+}
+.card{
+	border: none;
+	border-top: 5px solid  #f40612;
+	background:rgba(0, 0, 0, 0.7);
+	color: #fff;
+}
+p{
+	font-weight: 600;
+	font-size: 15px;
+}
+.fab{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	background:rgba(0, 0, 0, 0.7);
+	height: 40px;
+	width: 90px;
+}
+.fab:hover{
+	cursor: pointer;
+}
+.fa-twitter{
+	color: #56ABEC;
+}
+.fa-facebook{
+	color: #1775F1;
+}
+.fa-google{
+	color: #CB5048;
+}
+.division{
+	float: none;
+	position: relative;
+	margin: 30px auto 20px;
+	text-align: center;
+	width: 100%;
+	box-sizing: border-box;
+}
+.division .line{
+	border-top: 1.5px solid rgba(0, 0, 0, 0.7);
+	position: absolute;
+	top: 13px;
+	width: 85%;
+}
+.line.l{
+	left: 52px;
+}
+.line.r{
+	right: 45px;
+
+}
+.division span{
+	font-weight: 600;
+	font-size: 14px;
+}
+.myform{
+	padding: 0 25px 0 33px;
+}
+.form-control{
+	border: 1px solid rgba(0, 0, 0, 0.7);
+	border-radius: 3px;
+	background:rgba(0, 0, 0, 0.7);
+	margin-bottom: 20px;
+	letter-spacing: 1px;
+	
+}
+.form-control:focus{
+	border: 1px solid rgba(0, 0, 0, 0.7);
+	border-radius: 3px;
+	box-shadow: none;
+	background:rgba(0, 0, 0, 0.7);
+	color: #fff;
+	letter-spacing: 1px;
+}
+.bn{
+	text-decoration: underline;
+}
+.bn:hover{
+	cursor: pointer;
+}
+.form-check-input {
+    margin-top: 8px!important;
+    }
+.btn-primary{
+background: #f40612;
+border: none;
+border-radius: 50px;
+}
+.btn-primary:focus{
+	box-shadow: none;
+	border: none;
+}
+small{
+	color: #F2CEFF;
+}
+.far.fa-user{
+	font-size: 13px;
+}
+
+@media(min-width: 767px){
+	.bn{
+		text-align: right;
+	}
+}
+@media(max-width: 767px){
+	.form-check{
+		text-align: center;
+	}
+	.bn{
+		text-align: center;
+		align-items: center;
+	}
+}
+@media(max-width: 450px){
+	.fab{
+		width: 100%;
+		height: 100%;
+	}
+	.division .line{
+		width: 50%;
+	}
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row d-flex justify-content-center mt-5">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card py-3 px-2">
+                    <h5 class="text-center mb-3 mt-2">Sign In</h5>
+                    <div class="row mx-auto ">
+                        <div class="col-12" >
+                        </div>
+                        
+                    </div>
+                    <div class="division">
+                        <div class="row">
+                            <div class="col-3"><div class="line l"></div></div>
+                          
+                            <div class="col-3"><div class="line r"></div></div>
+                        </div>
+                    </div>
+                    <form class="myform">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Surname">
+                        </div>
+                        <div class="form-group">
+                          <input type="email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                          <input type="password" class="form-control" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                          <input type="password" class="form-control" placeholder="Password Again">
+                        </div>
+                        <div class="form-group">
+                          <select class="form-control">
+                            <option value="">Select City</option>
+                            <option value="Adana">Adana</option>
+                            <option value="Adıyaman">Adıyaman</option>
+                            <option value="Afyonkarahisar">Afyonkarahisar</option>
+                            <option value="Ağrı">Ağrı</option>
+                            <option value="Amasya">Amasya</option>
+                            <option value="Ankara">Ankara</option>
+                            <option value="Antalya">Antalya</option>
+                            <option value="Artvin">Artvin</option>
+                            <option value="Aydın">Aydın</option>
+                            <option value="Balıkesir">Balıkesir</option>
+                            <option value="Bilecik">Bilecik</option>
+                            <option value="Bingöl">Bingöl</option>
+                            <option value="Bitlis">Bitlis</option>
+                            <option value="Bolu">Bolu</option>
+                            <option value="Burdur">Burdur</option>
+                            <option value="Bursa">Bursa</option>
+                            <option value="Çanakkale">Çanakkale</option>
+                            <option value="Çankırı">Çankırı</option>
+                            <option value="Çorum">Çorum</option>
+                            <option value="Denizli">Denizli</option>
+                            <option value="Diyarbakır">Diyarbakır</option>
+                            <option value="Edirne">Edirne</option>
+                            <option value="Elazığ">Elazığ</option>
+                            <option value="Erzincan">Erzincan</option>
+                            <option value="Erzurum">Erzurum</option>
+                            <option value="Eskişehir">Eskişehir</option>
+                            <option value="Gaziantep">Gaziantep</option>
+                            <option value="Giresun">Giresun</option>
+                            <option value="Gümüşhane">Gümüşhane</option>
+                            <option value="Hakkari">Hakkari</option>
+                            <option value="Hatay">Hatay</option>
+                            <option value="Isparta">Isparta</option>
+                            <option value="Mersin">Mersin</option>
+                            <option value="İstanbul">İstanbul</option>
+                            <option value="İzmir">İzmir</option>
+                            <option value="Kars">Kars</option>
+                            <option value="Kastamonu">Kastamonu</option>
+                            <option value="Kayseri">Kayseri</option>
+                            <option value="Kırklareli">Kırklareli</option>
+                            <option value="Kırşehir">Kırşehir</option>
+                            <option value="Kocaeli">Kocaeli</option>
+                            <option value="Konya">Konya</option>
+                            <option value="Kütahya">Kütahya</option>
+                            <option value="Malatya">Malatya</option>
+                            <option value="Manisa">Manisa</option>
+                            <option value="Kahramanmaraş">Kahramanmaraş</option>
+                            <option value="Mardin">Mardin</option>
+                            <option value="Muğla">Muğla</option>
+                            <option value="Muş">Muş</option>
+                            <option value="Nevşehir">Nevşehir</option>
+                            <option value="Niğde">Niğde</option>
+                            <option value="Ordu">Ordu</option>
+                            <option value="Rize">Rize</option>
+                            <option value="Sakarya">Sakarya</option>
+                            <option value="Samsun">Samsun</option>
+                            <option value="Siirt">Siirt</option>
+                            <option value="Sinop">Sinop</option>
+                            <option value="Sivas">Sivas</option>
+                            <option value="Tekirdağ">Tekirdağ</option>
+                            <option value="Tokat">Tokat</option>
+                            <option value="Trabzon">Trabzon</option>
+                            <option value="Tunceli">Tunceli</option>
+                            <option value="Şanlıurfa">Şanlıurfa</option>
+                            <option value="Uşak">Uşak</option>
+                            <option value="Van">Van</option>
+                            <option value="Yozgat">Yozgat</option>
+                            <option value="Zonguldak">Zonguldak</option>
+                            <option value="Aksaray">Aksaray</option>
+                            <option value="Bayburt">Bayburt</option>
+                            <option value="Karaman">Karaman</option>
+                            <option value="Kırıkkale">Kırıkkale</option>
+                            <option value="Batman">Batman</option>
+                            <option value="Şırnak">Şırnak</option>
+                            <option value="Bartın">Bartın</option>
+                            <option value="Ardahan">Ardahan</option>
+                            <option value="Iğdır">Iğdır</option>
+                            <option value="Yalova">Yalova</option>
+                            <option value="Karabük">Karabük</option>
+                            <option value="Kilis">Kilis</option>
+                            <option value="Osmaniye">Osmaniye</option>
+                            <option value="Düzce">Düzce</option>
+                          </select>
+                        </div>
+                        
+                        <div class="form-group mt-3">
+                          <button type="button" class="btn btn-block btn-primary btn-lg">
+                            <small><i class="far fa-user pr-2"></i>Sign In</small>
+                          </button>
+                        </div>
+                      </form>
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      document.querySelector('.btn').addEventListener('click', function (event) {
+        event.preventDefault(); 
+    
+        // Get form values
+        const name = document.querySelector('input[placeholder="Name"]').value;
+        const surname = document.querySelector('input[placeholder="Surname"]').value;
+        const email = document.querySelector('input[placeholder="Email"]').value;
+        const password = document.querySelector('input[placeholder="Password"]').value;
+        const confirmPassword = document.querySelector('input[placeholder="Password Again"]').value;
+        const city = document.querySelector('select').value;
+    
+        // Simple validation
+        if (!name || !surname || !email || !password || !confirmPassword || !city) {
+          alert('All fields are required.');
+          return;
+        }
+    
+        if (password !== confirmPassword) {
+          alert('Passwords do not match.');
+          return;
+        }
+
+        // Password validation: at least 8 characters, at least 1 number, and at least 1 non-alphabetic character
+    const passwordRegex = /^(?=.*\d)(?=.*[^a-zA-Z0-9]).{8,}$/;
+    if (!passwordRegex.test(password)) {
+        alert('Password must be at least 8 characters long, contain at least 1 number, and at least 1 non-alphabetic character.');
+        return;
+    }
+    
+        
+        fetch('/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name,
+            surname,
+            email,
+            password,
+            city
+          })
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data.success) {
+            window.location.href = '/login';
+          } else {
+            alert(data.message);
+          }
+        })
+        .catch(error => {
+          console.error('Fetch error: ', error);
+          alert('An error occurred. Please try again later.');
+        });
+      });
+    </script>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

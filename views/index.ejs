@@ -1,0 +1,90 @@
+<%- include('./partials/_header.ejs') %>
+<body>
+
+  <%- include('./partials/_navbar.ejs') %>
+  
+
+<div class="top">
+  <div class="columns">
+    <div class="column is-full featured_wrapper p-0">
+      <img src="https://assets.nflxext.com/ffe/siteui/vlv3/a99688ca-33c3-4099-9baa-07a2e2acb398/ac2a0600-b8d1-4429-8875-630484d7a6df/TR-tr-20240520-popsignuptwoweeks-perspective_alpha_website_large.jpg" class="featured">
+      <div class="title_wrapper">
+        <span class="has-text-white"><%= translations.trendingToday %></span>
+          <h1 class="title is-1 has-text-white"><%= translations.untoldStory %></h1>
+          <button class="button is-medium"><%= translations.watchItNow %></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="columns is-multiline p-0 pt-6 last">
+    <div class="column is-full">
+      <p class="has-text-white"><%= translations.actionMovies %></p>
+    </div>
+    <div class="scroll-container">
+      
+    </div>
+  </div>
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    fetch('/movies')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        const container = document.querySelector('.scroll-container');
+        container.innerHTML = ''; 
+
+        data.forEach(movie => {
+          const card = document.createElement('div');
+          card.classList.add('column', 'is-one-quarter', 'movie-card');
+          
+          card.innerHTML = `
+            <div class="movie-rating">IMDb: ${movie.imdb_no}</div>
+            <img src="/assets/img/uploads/${movie.img}" alt="${movie.name}">
+            <div class="movie-title">${movie.name}</div>
+            <button class="watchlist-button">Watchlist</button>
+          `;
+
+          card.addEventListener("click", () => {
+            fetch('/pass', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ name: movie.name })
+            })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+              return response.json();
+            })
+            .then(data => {
+              window.location.href = `/content?id=${data}`;
+            })
+            .catch(error => {
+              console.error('Fetch error: ', error);
+            });
+          });
+
+          container.appendChild(card);
+        });
+      })
+      .catch(error => {
+        console.error('Fetch error: ', error);
+      });
+  });
+</script>
+
+
+
+  
+</body>
+</html>
