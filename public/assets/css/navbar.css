@@ -1,0 +1,243 @@
+
+.navbar {
+    background-color: #212121;
+    color: #fff;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100000000000000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+}
+
+.logo {
+    font-size: 24px;
+    text-decoration: none;
+    color: #f5c518;
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    margin-right: 8px;
+}
+
+.search-bar {
+    display: flex;
+    flex-grow: 1;
+    margin: 0 20px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.search-bar button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #f5c518;
+    color: #000;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.search-bar button i {
+    font-size: 16px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    padding: 10px 0;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease;
+}
+
+.nav-links a:hover {
+    border-bottom: 2px solid #f5c518;
+}
+
+.language-selector {
+    margin-right: 20px;
+}
+
+.language-selector select {
+    background-color: #212121;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 5px;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+
+.user-options {
+    display: flex;
+    align-items: center;
+}
+
+.login-btn, .signup-btn {
+    text-decoration: none;
+    color: #fff;
+    padding: 8px 12px;
+    margin-left: 10px;
+    border: 1px solid #f5c518;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login-btn:hover, .signup-btn:hover {
+    background-color: #f5c518;
+    color: #000;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.profile .user-name {
+    margin-right: 8px;
+}
+
+.profile i {
+    font-size: 24px;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .search-bar {
+        margin: 0;
+    }
+    .nav-links {
+        display: none;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    .language-selector {
+        margin: 0;
+    }
+    .user-options {
+        display: none;
+    }
+    .navbar-container.mobile-menu .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #212121;
+        width: 100%;
+        text-align: center;
+    }
+    .navbar-container.mobile-menu .nav-links li {
+        margin: 10px 0;
+    }
+    .navbar-container.mobile-menu .user-options {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 180px;
+        left: 0;
+        background-color: #212121;
+        width: 100%;
+        padding: 10px 0;
+    }
+}
+
+.search-result-item {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+
+
+.search-result-item .result-info {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: left !important;
+}
+
+.search-result-item .result-info .result-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.search-result-item img {
+    width: 60px !important;
+    height: 60px !important;
+    margin-right: 10px !important;
+}
+
+#result > .result-info > img{
+    width: 60px !important;
+    height: 60px !important;
+    margin-right: 10px !important;
+}
+
+
+.search-result-container {
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    z-index: 1;
+    height: auto;
+    color: black;
+}
+
+.search-result-container p {
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar-container {
+    position: relative;
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}

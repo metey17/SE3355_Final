@@ -1,0 +1,380 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  background: #43423E;
+}
+
+a {
+  text-decoration: none;
+  color: #5C7FB8
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.movie-card {
+  font: 14px/22px "Lato", Arial, sans-serif;
+  color: #A9A8A3;
+  padding: 40px 0;
+}
+
+.container {
+  margin: 0 auto;
+  width: 780px;
+  height: 640px;
+  background: #F0F0ED;
+  border-radius: 5px;
+  position: relative;
+}
+
+.hero {
+  height: 342px;  
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+
+.cover {
+  position: absolute;
+  top: 160px;
+  left: 40px;
+  z-index: 2;
+}
+
+.details {
+  
+  padding: 190px 0 0 380px;
+  
+  
+  .title1 {
+    color: white;
+    font-size: 44px;
+    margin-bottom: 13px;
+    position: relative;
+    
+    span {
+      position: absolute;
+      top: 3px;
+      margin-left: 12px;
+      background: #C4AF3D;
+      border-radius: 5px;
+      color: #544C21;
+      font-size: 14px;
+      padding: 0px 4px;
+      
+    }
+  }
+
+  .title2 {    
+    color: #C7C1BA;
+    font-size: 23px;    
+    font-weight: 300;
+    margin-bottom: 15px;
+  }
+  
+  
+  .likes {
+    margin-left: 24px;
+  }
+  
+  
+  .likes:before {
+    content: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/icon_like.png");
+    position: relative;
+    top: 2px;
+    padding-right: 7px;
+  }
+
+}
+
+.description {
+  
+  bottom: 0px;
+  height: 200px;
+  font-size: 16px;
+  line-height: 26px;
+  color: #B1B0AC;
+  
+}
+
+.column1 {
+  padding-right: 50px;
+  padding-top: 30px;
+  width: 55%;
+  float: right;
+  text-align: center;
+  /* border: 1px solid red; */
+}
+
+.tag {
+  background: white;
+  border-radius: 10px;
+  padding: 3px 8px;
+  font-size: 14px;
+  margin-right: 4px;
+  line-height: 35px;
+  cursor: pointer;
+}
+
+.tag:hover {
+  background: #ddd;
+}
+
+.column2 {
+  padding-left: 41px;
+  padding-top: 30px;
+  margin-left: 20px;
+  width: 70%;
+  float: left;
+}
+
+.avatars {
+  margin-top: 23px;
+  
+  img {
+    cursor: pointer;
+  }
+  
+  img:hover {
+    opacity: 0.6;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+
+fieldset, label { margin: 0; padding: 0; }
+
+/****** Style Star Rating Widget *****/
+
+.rating { 
+  border: none;
+  float: left;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin: 5px;
+  margin-top: 0;
+  font-size: 1em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+
+.rating > input:checked ~ label, 
+.rating:not(:checked) > label:hover, 
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } 
+
+.rating > input:checked + label:hover, 
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, 
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+
+
+a[data-tooltip] {
+  position: relative;
+}
+a[data-tooltip]::before,
+a[data-tooltip]::after {
+  position: absolute;
+  display: none;
+  opacity: 0.85;
+}
+a[data-tooltip]::before {
+ 
+  content: attr(data-tooltip);
+  background: #000;
+  color: #fff;
+  font-size: 13px;
+  padding: 5px;
+  border-radius: 5px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+a[data-tooltip]::after {
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  content: '';
+}
+
+a[data-tooltip]:hover::before,
+a[data-tooltip]:hover::after {
+  display: block;
+}
+
+a[data-tooltip][data-placement="top"]::before {
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 40px;
+}
+a[data-tooltip][data-placement="top"]::after {
+  border-top-color: #000;
+  border-bottom: none;
+  bottom: 50px;
+  left: 20px;
+  margin-bottom: 4px;
+}
+
+#show {
+  display: block;
+  width: 300px; 
+  margin: 0 auto; 
+  text-align: center;
+}
+
+#show img.cover {
+
+  height: auto;
+  border: 2px solid #ccc; 
+  border-radius: 8px; 
+  transition: transform 0.3s ease; 
+}
+
+#show:hover img.cover {
+  transform: scale(1.05); 
+}
+
+
+
+
+
+
+.be-comment-block {
+  margin-bottom: 50px !important;
+  border: 1px solid #edeff2;
+  border-radius: 2px;
+  padding: 50px 70px;
+  border:1px solid #ffffff;
+}
+
+.comments-title {
+  font-size: 16px;
+  color: #262626;
+  margin-bottom: 15px;
+  font-family: 'Conv_helveticaneuecyr-bold';
+}
+
+.be-img-comment {
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin-bottom: 15px;
+}
+
+.be-ava-comment {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.be-comment-content {
+  margin-left: 80px;
+}
+
+.be-comment-content span {
+  display: inline-block;
+  width: 49%;
+  margin-bottom: 15px;
+}
+
+.be-comment-name {
+  font-size: 13px;
+  font-family: 'Conv_helveticaneuecyr-bold';
+}
+
+.be-comment-content a {
+  color: #383b43;
+}
+
+.be-comment-content span {
+  display: inline-block;
+  width: 49%;
+  margin-bottom: 15px;
+}
+
+.be-comment-time {
+  text-align: right;
+}
+
+.be-comment-time {
+  font-size: 11px;
+  color: #b4b7c1;
+}
+
+.be-comment-text {
+  font-size: 13px;
+  line-height: 18px;
+  color: #7a8192;
+  display: block;
+  background: #f6f6f7;
+  border: 1px solid #edeff2;
+  padding: 15px 20px 20px 20px;
+}
+
+.form-group.fl_icon .icon {
+  position: absolute;
+  top: 1px;
+  left: 16px;
+  width: 48px;
+  height: 48px;
+  background: #f6f6f7;
+  color: #b5b8c2;
+  text-align: center;
+  line-height: 50px;
+  -webkit-border-top-left-radius: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  -moz-border-radius-topleft: 2px;
+  -moz-border-radius-bottomleft: 2px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.form-group .form-input {
+  font-size: 13px;
+  line-height: 50px;
+  font-weight: 400;
+  color: #b4b7c1;
+  width: 100%;
+  height: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid #edeff2;
+  border-radius: 3px;
+}
+
+.form-group.fl_icon .form-input {
+  padding-left: 70px;
+}
+
+.form-group textarea.form-input {
+  height: 150px;
+}
